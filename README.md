@@ -17,6 +17,20 @@ GiiiCon 本体が Wi-Fi で読む、公式ライブラリの配布サイトで�
 本体はどのファイルも署名と hash で確かめるので、配信元（このサイト）を信頼する必要はありません。
 形式は GiiiCon の `docs/adr/ADR-009-official-index.md` と `docs/os/store.md` を参照してください。
 
+## 更新のしくみ
+
+- **毎日の再署名**：`.github/workflows/refresh.yml` が毎日 `tools/refresh.py` を動かし、期限の短い metadata
+  （timestamp は 2 日、snapshot は 14 日、targets は 60 日）を署名し直します。パッケージの中身は変えません。
+  使う鍵は timestamp・snapshot・targets だけで、リポジトリの secrets に置いています。root の鍵は maintainer の手元にあります。
+- **アプリを載せる・更新する**：GiiiCon の `library/packages/<id>/package.json` に版を足し、最新のこのリポジトリを
+  手元に取ってから、GiiiCon で次を実行して push します。
+
+  ```sh
+  git -C ../giii-s-mods pull
+  uv run --project tools giii index build --keys ~/.giiicon/keys/index --site ../giii-s-mods
+  uv run --project tools giii index verify --site ../giii-s-mods --root library/root/1.gix
+  ```
+
 ## 掲載中
 
 | アプリ | 版 |
