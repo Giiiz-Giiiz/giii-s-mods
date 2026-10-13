@@ -35,6 +35,6 @@ GiiiCon 本体が Wi-Fi で読む、公式ライブラリの配布サイトで�
 
 | アプリ | 版 |
 |---|---|
-| [Dodge-Dodge-and-Catch](https://github.com/Giiiz-Giiiz/giii-s-mod_Dodge-Dodge-and-Catch) | 0.1.1 |
+| [Dodge-Dodge-and-Catch](https://github.com/Giiiz-Giiiz/giii-s-mod_Dodge-Dodge-and-Catch) | 0.1.1, 0.1.2 |
 | Hello（サンプル） | 0.1.0, 0.2.0 |
 | Retro（テーマのサンプル）・Night（プロファイルのサンプル） | 1.0.0 |
